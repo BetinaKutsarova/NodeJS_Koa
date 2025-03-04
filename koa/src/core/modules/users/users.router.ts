@@ -55,7 +55,6 @@ userRouter.post(
 
         try {
             const userData = ctx.request.body as Omit<User, "_id" | "createdAt">;
-            console.log(userData);
             const user = await UserService.create(userData);
 
             ctx.status = 201;
@@ -73,7 +72,6 @@ userRouter.put(
     validator(updateUserValidationSchema),
     async ctx => {
         const { id } = ctx.params;
-        console.log(ctx.state.user.role);
 
         if (ctx.state.user.role !== 'admin' && ctx.state.user._id !== id) {
             ctx.status = 403;

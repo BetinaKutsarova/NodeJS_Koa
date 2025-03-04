@@ -39,8 +39,6 @@ privateRouter.post(
     const userId = ctx.state.user._id;
     const itemData = ctx.request.body as Omit<PrivateItem, "_id" | "createdAt" | "userId">;
 
-    console.log('do tuka idvame li')
-
     const item = await PrivateService.create(itemData, userId);
     ctx.status = 201;
     ctx.body = item;
