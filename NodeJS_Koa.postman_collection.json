@@ -1,0 +1,414 @@
+{
+	"info": {
+		"_postman_id": "bd7f2d7d-f574-40fa-9bfb-ab6a7d57891f",
+		"name": "NodeJS_Koa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42644549"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n  \"name\": \"Test User\",\n  \"email\": \"test@example.com\",\n  \"password\": \"password123\",\n  \"confirmPassword\": \"password123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"admin@example.com\",\n  \"password\": \"adminpassword\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Create user (admin only)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJmYjU5MDE3My0wMzk2LTQ2OTctYjA0Ny05NWRiY2U4MmVlNTUiLCJpYXQiOjE3NDA5MDYyODUsImV4cCI6MTc0MDk5MjY4NX0.rmLg8wpi26SnSnpWrtkUg19RhOi_caRlrdT63jHo-78",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"New\",\n  \"email\": \"new@example.com\",\n  \"password\": \"password\",\n  \"role\": \"user\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all users (admin only)",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get user by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0MzQ1YmFjZi1jOGI5LTQ1MjQtOTJjNi0yNGE3MmYxYWNkNjUiLCJpYXQiOjE3NDA3MzA2NzgsImV4cCI6MTc0MDgxNzA3OH0.K83dqN627XUCbqT8ZRH3VPV_DdkT0Kg2loIbCNBWhss",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/users/ebada755-7f1a-4016-b080-749506db4f7d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"ebada755-7f1a-4016-b080-749506db4f7d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJiYWY5ZmMyZC00M2YyLTQ2YzctODU4My0wODgxYmQxNjYwNzciLCJpYXQiOjE3NDA3NTM5MzgsImV4cCI6MTc0MDg0MDMzOH0.XJur6N-GFYb-AwzWNRAas30NTeQm61hJgW9LRA4NHGE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"hehe@email.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/baf9fc2d-43f2-46c7-8583-0881bd166077",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"baf9fc2d-43f2-46c7-8583-0881bd166077"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJlYmFkYTc1NS03ZjFhLTQwMTYtYjA4MC03NDk1MDZkYjRmN2QiLCJpYXQiOjE3NDA3NTI2MzMsImV4cCI6MTc0MDgzOTAzM30.Ey9WJLZDYQn-25B-sNlJntZQ-2usBu0ys4C6qrdsJ3c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/bcb819f5-69e3-4a72-95d0-6f36323b38db",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"bcb819f5-69e3-4a72-95d0-6f36323b38db"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Private-module",
+			"item": [
+				{
+					"name": "Create item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJmYjU5MDE3My0wMzk2LTQ2OTctYjA0Ny05NWRiY2U4MmVlNTUiLCJpYXQiOjE3NDA5MDYyODUsImV4cCI6MTc0MDk5MjY4NX0.rmLg8wpi26SnSnpWrtkUg19RhOi_caRlrdT63jHo-78",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"Test Item\",\n  \"content\": \"Teeeestttt\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/private",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"private"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all private items of logged-in user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJmYjU5MDE3My0wMzk2LTQ2OTctYjA0Ny05NWRiY2U4MmVlNTUiLCJpYXQiOjE3NDA5MDYyODUsImV4cCI6MTc0MDk5MjY4NX0.rmLg8wpi26SnSnpWrtkUg19RhOi_caRlrdT63jHo-78",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/private",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"private"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get private item of logged-in user by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJmYjU5MDE3My0wMzk2LTQ2OTctYjA0Ny05NWRiY2U4MmVlNTUiLCJpYXQiOjE3NDA5MDYyODUsImV4cCI6MTc0MDk5MjY4NX0.rmLg8wpi26SnSnpWrtkUg19RhOi_caRlrdT63jHo-78",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/private/f9432f3f-7242-49c5-a155-3f29c601b97d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"private",
+								"f9432f3f-7242-49c5-a155-3f29c601b97d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update private item of logged-in user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJmYjU5MDE3My0wMzk2LTQ2OTctYjA0Ny05NWRiY2U4MmVlNTUiLCJpYXQiOjE3NDA5MDYyODUsImV4cCI6MTc0MDk5MjY4NX0.rmLg8wpi26SnSnpWrtkUg19RhOi_caRlrdT63jHo-78",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"UPDATED item\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/private/f9432f3f-7242-49c5-a155-3f29c601b97d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"private",
+								"f9432f3f-7242-49c5-a155-3f29c601b97d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete private item of logged-in user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OGE0ZjAyOC1lNTRlLTQ0NTItODFjMS1hNmU2MmNhYmY5ZWIiLCJpYXQiOjE3NDEwNzU3ODgsImV4cCI6MTc0MTE2MjE4OH0.t_8uNvBrLAHO8oFECzZeWMWMoEsJeJQTqzkVIyzbRKw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/private/1144e978-17b5-415b-902f-3252ba89143d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"private",
+								"1144e978-17b5-415b-902f-3252ba89143d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
